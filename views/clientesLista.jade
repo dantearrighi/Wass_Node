@@ -1,0 +1,46 @@
+﻿extends layout
+
+block content
+  h1= title
+  //p #{JSON.stringify(obj)}
+  .panel.panel-primary
+        .panel-heading Buscar
+        .panel-body 
+          input.form-control(rows='5', class='textarea',placeholder='CUIL-DNI-Apellido' name="filtroBusqueda", id="filtroBusqueda")
+        
+     table.table.table-responsive.table-hover.danger(border=1 )
+    
+     tr
+        th N
+        th Nombre
+        th Apellido
+        th DNI-CUIL
+        th Email
+        th Telefono 1
+        th Teléfono 2
+        th(colspan="2") Opciones
+        -obj.forEach(function(v,i){
+        tr
+        td=(i+1)
+        td=v.nombre
+        td=v.apellido
+        td=v.dniCuil
+        td=v.mail
+        td=v.tel1
+        td=v.tel2
+        td
+            a(href="/edit/"+v._id) Editar
+        td
+            a(href="/eliminarCliente/"+v._id) Borrar
+            -})
+  p
+
+  div
+     a.btn.btn-primary.btn-large(href='/' alt='Menú Principal') &laquo; Menú Principal 
+     td 
+        a.btn.btn-success.btn-large(href='/crearCliente' alt='Añadir nuevo') Añadir nuevo 
+     
+  
+
+
+   

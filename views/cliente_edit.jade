@@ -1,0 +1,36 @@
+﻿extends layout
+
+block content
+  h1= title
+  //p=JSON.stringify(cliente)
+  form(action='',method='post' onsubmit='')
+    div
+      label(for='nombre') Nombre:
+      input(type='text', name='nombre', id='nombre', placeholder='Name here...', value=cliente.nombre)
+    div
+      label(for='apellido') Apellido:
+      input(type='text', name='apellido', id='apellido', placeholder='Age...', value=cliente.apellido)
+    div
+      label(for='dniCuil') Dni-CUIL:
+      input(type='text', name='dniCuil', id='dniCuil', placeholder='dniCuil...', value=cliente.dniCuil)
+    div
+      label(for='claveFiscal') Clave Fiscal:
+      input(type='text', name='claveFiscal', id='claveFiscal', placeholder='claveFiscal...', value=cliente.claveFiscal)
+     div
+      label(for='mail') Email:
+      input(type='text', name='mail', id='mail', placeholder='mail...', value=cliente.mail)
+     div
+      label(for='tel1') Teléfono 1:
+      input(type='text', name='tel1', id='tel1', placeholder='tel1...', value=cliente.tel1)
+     div
+      label(for='tel2') Teléfono 2:
+      input(type='text', name='tel2', id='tel2', placeholder='tel2...', value=cliente.tel2)
+     
+    div
+      input(type='submit', value='Guardar cambios')
+    
+      button(onclick='window.location.href=\'/listaClientes\'') Volver a la lista
+  style.
+    form label { min-width: 80px; display: inline-block; }
+    form > div { padding: 5px; }
+

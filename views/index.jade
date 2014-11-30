@@ -1,0 +1,45 @@
+﻿extends layout
+
+block content
+  .jumbotron
+    h1 WASS
+    p.lead WASS is the most secure and fast Social Services Administration App ever built in Node.
+    p
+      a.btn.btn-primary.btn-large(href='#') Learn more.. &raquo;
+  .row
+    .col-md-4
+      h2 Getting started
+      p WASS gives you full control of your tasks and assists you in the management of retired old people.
+      p
+        a.btn.btn-default(href='#') About WASS.. &raquo;
+    .col-md-4
+      h2 Clientes
+      p Alta, Baja, Modificación
+        .btn-group
+        button.btn.btn-primary(type='button' href='/clientes') Menú de Clientes
+          button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='false')
+            span.caret
+            span.sr-only Toggle Dropdown
+        ul.dropdown-menu(role='menu')
+            
+            li
+                 a(href='/clientesLista') Ver lista completa
+            li.divider
+            li
+                 a(href='/crearCliente') Nuevo Cliente
+    .col-md-4
+      h2 Tramites
+      p Seguimiento y gestión
+        .btn-group
+        button.btn.btn-primary(type='button' href='/tramites') Menú de Trámites
+          button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='false')
+            span.caret
+            span.sr-only Toggle Dropdown
+        ul.dropdown-menu(role='menu')
+            li
+                a(href='/buscarTramite')  Buscar Trámite
+            li
+                 a(href='/listaTramites') Ver lista completa
+            li.divider
+            li
+                 a(href='/nuevoTramite') Nuevo Trámite

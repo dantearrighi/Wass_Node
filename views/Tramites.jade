@@ -1,0 +1,21 @@
+﻿extends layout
+
+block content
+  .jumbotron
+    h1 WASS
+  .row
+    .col-md-4
+      h2 Buscar trámite
+      p Por número, DNI ó Apellido.
+      p
+        a.btn.btn-default(href='http://www.anses.gob.ar/') Buscar &raquo;
+    .col-md-4
+      h2 Nuevo trámite
+      p Iniciar nuevo trámite.
+      p
+        a.btn.btn-default(href='http://www.anses.gob.ar/') Nuevo &raquo;
+    .col-md-4
+      h2 Listado completo
+      p Ver todos los trámites.
+      p
+        a.btn.btn-default(href='/tramites') Ver lista &raquo;
