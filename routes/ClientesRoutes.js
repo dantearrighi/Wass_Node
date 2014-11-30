@@ -6,7 +6,7 @@ exports.clientes = function (req, res) {
         
         res.render('clientes', { title: 'Menú de Clientes', obj: cliente, year: new Date().getFullYear(), message: 'Administracion de Clientes' });
     })
-}; //Menu de Clientes
+};                    //Menu de Clientes
 
 exports.clientesLista = function (req, res) {
     

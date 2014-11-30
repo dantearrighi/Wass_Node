@@ -1,6 +1,7 @@
 ﻿extends layout
 block content
             h1= "Crear cliente"
+            block content.form
             form(method='post', name='', action='/clienteNuevoCreado')
                      
                         table.form_table(cellspacing='5', cellpadding='5', border='0')
@@ -36,7 +37,7 @@ block content
 
                                                             tr
                                                                         td
-                                                                                
+                                                                                    block content.endForm
                                                                                     a.btn.btn-danger.btn-large(align='right', href='/clientesLista' alt='Cancelar alta de cliente')&laquo; Cancelar 
                                                                                     td 
                                                                                         input.btn.btn-success.btn-large(type='submit', value='Guardar cliente',id="createButton")
