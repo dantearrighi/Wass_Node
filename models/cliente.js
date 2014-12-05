@@ -1,12 +1,15 @@
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 var clienteSchema = new Schema({
-    nombre: String,
-    apellido: String,
+    na: {
+        nombre: String,
+        apellido: String,
+        },
     dniCuil: Number,
     claveFiscal: String,
     mail: String,
     tel1: String,
     tel2: String,
+    
 },
 {
 collection: 'clientes'

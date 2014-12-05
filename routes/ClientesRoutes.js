@@ -22,7 +22,7 @@ exports.clienteABM = function (req, res) {
 
 exports.crearCliente = function (req, res) {   
     console.log(req.body);
-    var nuevoCliente = new vClientes({ nombre: req.body.nombre, apellido: req.body.apellido, dniCuil: req.body.dniCuil, claveFiscal: req.body.claveFiscal, apellido: req.body.apellido, mail: req.body.mail, tel1: req.body.tel1, tel2: req.body.tel2});
+    var nuevoCliente = new vClientes({ 'na.nombre': req.body.nombre,'na.apellido': req.body.apellido, dniCuil: req.body.dniCuil, claveFiscal: req.body.claveFiscal, apellido: req.body.apellido, mail: req.body.mail, tel1: req.body.tel1, tel2: req.body.tel2});
     nuevoCliente.save(function (err, doc) {
         if (!err) {
             res.redirect('/clienteGuardado');

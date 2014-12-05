@@ -22,12 +22,13 @@ block content
         -obj.forEach(function(v,i){
         tr
         td=(i+1)
-        td=v.nombre
-        td=v.apellido
+        td=v.na.nombre
+        td=v.na.apellido
         td=v.dniCuil
         td=v.mail
         td=v.tel1
         td=v.tel2
+        
         td
             a(href="/edit/"+v._id) Editar
         td
