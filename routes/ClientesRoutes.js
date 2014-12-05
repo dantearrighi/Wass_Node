@@ -15,6 +15,12 @@ exports.clientesLista = function (req, res) {
         res.render('clientesLista', { title: 'Listado de Clientes', obj: cliente, year: new Date().getFullYear(), message: 'Listado de Clientes' });
     })
 };
+//ESTE BEBE RENDERIZA LA VISTA PERO CON LA BUSQUEDA YA HECHA
+exports.clientesListaFiltrada = function (req, res) {
+    vClientes.buscarPorDNI(req.filtroBusqueda, function (err, cliente){
+        res.render('clientesLista', { title: 'Listado de Clientes', obj: cliente, year: new Date().getFullYear(), message: 'Listado de Clientes' });
+    });
+};
 
 exports.clienteABM = function (req, res) {  
     res.render('cliente_alta', { title: 'Añadir Cliente', year: new Date().getFullYear(), message: 'ABM de Clientes' });
