@@ -74,4 +74,11 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+
+
+
+#Ignores agregados por abelardo
 *.suo
+*.dat
+.ntvs_analysis.dat
+

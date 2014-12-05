@@ -68,6 +68,10 @@ personaSchema.static("buscarAlumnos", function (cb) {
 
 */
 
+clienteSchema.static.buscarPorDNI = function (dniCuil, cb) {
+    this.find({ dniCuil: req.body.dniCuil }, cb);
+}
+
 clienteSchema.static("buscarClientes", function (cb) {
     this.find({ }, function (err, r) {
         cb(r);
