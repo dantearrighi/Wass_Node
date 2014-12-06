@@ -10,17 +10,21 @@ exports.clientes = function (req, res) {
 
 exports.clientesLista = function (req, res) {
     
-    vClientes.buscarClientes(function (cliente) {  //MUESTRA LA LISTA
+    vClientes.buscarClientes(function (cliente) {  
         
         res.render('clientesLista', { title: 'Listado de Clientes', obj: cliente, year: new Date().getFullYear(), message: 'Listado de Clientes' });
     })
 };
-//ESTE BEBE RENDERIZA LA VISTA PERO CON LA BUSQUEDA YA HECHA
+                                                               
 exports.clientesListaFiltrada = function (req, res) {
-    vClientes.buscarPorDNI(req.filtroBusqueda, function (err, cliente){
+
+    vClientes.buscarPorDNI(req.body.filtroBusqueda, function (cliente){
+
         res.render('clientesLista', { title: 'Listado de Clientes', obj: cliente, year: new Date().getFullYear(), message: 'Listado de Clientes' });
     });
-};
+
+   
+};        //ESTE BEBE RENDERIZA LA VISTA PERO CON LA BUSQUEDA YA HECHA
 
 exports.clienteABM = function (req, res) {  
     res.render('cliente_alta', { title: 'Añadir Cliente', year: new Date().getFullYear(), message: 'ABM de Clientes' });
@@ -71,8 +75,8 @@ exports.editarCliente = function (req, res) {                  // Formulario EDI
 exports.editarClienteConfirmar = function (req, res) {  
     vClientes.findOne({ _id: req.params.id }, function (err, doc) {
         if (!err) {
-            doc.nombre = req.body.nombre;
-            doc.apellido = req.body.apellido;
+            doc.na.nombre = req.body.nombre;
+            doc.na.apellido = req.body.apellido;
             doc.dniCuil = req.body.dniCuil;
             doc.claveFiscal = req.body.claveFiscal;
             doc.mail = req.body.mail;

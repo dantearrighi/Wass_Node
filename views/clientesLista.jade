@@ -4,20 +4,33 @@ block content
   h1= title
   //p #{JSON.stringify(obj)}
   .panel.panel-primary
-        .panel-heading Buscar
+        .panel-heading Buscar   
+            
+            
         .panel-body 
-          input.form-control(rows='5', class='textarea',placeholder='CUIL-DNI-Apellido' name="filtroBusqueda", id="filtroBusqueda")
-          a.btn.btn-success.btn-large(href='/clientesLista' alt='Buscar uno') bUSCAR
+             
+            form(method='post', name='', action='/clientesLista/'+filtroBusqueda)
+                tr
+                   input.form-control(rows='5', class='textbox', name="filtroBusqueda", id="filtroBusqueda") 
+                p
+                tr
+                    input.btn.btn-primary.btn-large(type='submit', value='Filtrar',id="btnFiltrar") 
+                    span.glyphicon.glyphicon-chevron-down
+                    b 
+                    b &nbsp;
+                        a.btn.btn-info.btn-large(href='/clientesLista' alt='ver todos') Ver Todos
+                        span.glyphicon.glyphicon-search(aria-hidden='true')
+             
      table.table.table-responsive.table-hover.danger(border=1 )
     
      tr
-        th N
-        th Nombre
-        th Apellido
-        th DNI-CUIL
-        th Email
-        th Telefono 1
-        th Teléfono 2
+        th.text-center Nro
+        th.text-center Nombre
+        th.text-center Apellido
+        th.text-center DNI-CUIL
+        th.text-center Email
+        th.text-center Telefono 1
+        th.text-center Teléfono 2
         th(colspan="2") Opciones
         -obj.forEach(function(v,i){
         tr

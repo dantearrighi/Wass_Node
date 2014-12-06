@@ -52,7 +52,7 @@ app.get('/crearCliente', ClientesRoutes.clienteABM);                     // MUES
 app.post('/clienteNuevoCreado', ClientesRoutes.crearCliente);            // CREA Y GUARDA EL Cliente 
 app.get('/clienteGuardado', ClientesRoutes.clienteGuardadoConfirm);      // CONFIRMA Cliente CREADO
 app.get('/clientesLista', ClientesRoutes.clientesLista);                 // LISTADO
-app.post('/clientesLista', ClientesRoutes.clientesListaFiltrada);        // LISTA FILTRADA POR BUSQUEDA
+app.post('/clientesLista/:filtro', ClientesRoutes.clientesListaFiltrada);        // LISTA FILTRADA POR BUSQUEDA
 app.get('/eliminarCliente/:id', ClientesRoutes.eliminarCliente);         // ELIMINA Cliente
 app.get('/clienteEliminado', ClientesRoutes.clienteEliminadoConfirm);    // CONFRIMA Cliente Eliminado
 app.get('/edit/:id', ClientesRoutes.editarCliente);                      // FORMULARIO DE EDICION
