@@ -17,8 +17,8 @@ collection: 'clientes'
 
 
 
-clienteSchema.static("buscarPorDNI", function (filtro, cb) {
-    this.find({dniCuil: filtro }, function (err, r) {
+clienteSchema.static("buscarPorApellido", function (filtro, cb) {
+    this.find({'na.apellido': filtro }, function (err, r) {
         cb(r);
     });
 });

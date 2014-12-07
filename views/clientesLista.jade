@@ -25,27 +25,27 @@ block content
     
      tr
         th.text-center Nro
-        th.text-center Nombre
-        th.text-center Apellido
+        th.text-center Apellido y Nombre
         th.text-center DNI-CUIL
         th.text-center Email
         th.text-center Telefono 1
         th.text-center Teléfono 2
-        th(colspan="2") Opciones
+        th.text-center(colspan="3") Opciones
         -obj.forEach(function(v,i){
         tr
         td=(i+1)
-        td=v.na.nombre
-        td=v.na.apellido
+        td=v.na.apellido+', ' +v.na.nombre
         td=v.dniCuil
         td=v.mail
         td=v.tel1
         td=v.tel2
         
         td
-            a(href="/edit/"+v._id) Editar
+            a.btn.btn-success(href="/verTramite/"+v._id) Ver ficha
         td
-            a(href="/eliminarCliente/"+v._id) Borrar
+            a.text-center.btn.btn-info.btn-primary(href="/edit/"+v._id) Editar
+        td
+            a.text-center.btn.btn-danger.btn-danger(href="/eliminarCliente/"+v._id) Borrar
             -})
   p
 

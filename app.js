@@ -47,19 +47,19 @@ app.get('/contact', routes.contact);
 app.get('/tramites', routes.tramites);
 
 //CLIENTES ---> GET Y POST
-app.get('/clientes', ClientesRoutes.clientes);                           //--//--//   Menu de Clientes   //--//--// (Organizado según orden de ejecución)
-app.get('/crearCliente', ClientesRoutes.clienteABM);                     // MUESTRA ABM PARA DAR DE ALTA
-app.post('/clienteNuevoCreado', ClientesRoutes.crearCliente);            // CREA Y GUARDA EL Cliente 
-app.get('/clienteGuardado', ClientesRoutes.clienteGuardadoConfirm);      // CONFIRMA Cliente CREADO
-app.get('/clientesLista', ClientesRoutes.clientesLista);                 // LISTADO
-app.post('/clientesLista/:filtro', ClientesRoutes.clientesListaFiltrada);        // LISTA FILTRADA POR BUSQUEDA
-app.get('/eliminarCliente/:id', ClientesRoutes.eliminarCliente);         // ELIMINA Cliente
-app.get('/clienteEliminado', ClientesRoutes.clienteEliminadoConfirm);    // CONFRIMA Cliente Eliminado
-app.get('/edit/:id', ClientesRoutes.editarCliente);                      // FORMULARIO DE EDICION
-app.post('/edit/:id', ClientesRoutes.editarClienteConfirmar);                 // CONFIRMA EDICION 
+app.get('/clientes', ClientesRoutes.clientes);                              //--//--//   Menu de Clientes   //--//--// (Si nos organizamos cojemos todos)
+app.get('/crearCliente', ClientesRoutes.clienteABM);                              // MUESTRA ABM PARA DAR DE ALTA
+app.post('/clienteNuevoCreado', ClientesRoutes.crearCliente);                     // CREA Y GUARDA EL Cliente 
+app.get('/clienteGuardado', ClientesRoutes.clienteGuardadoConfirm);               // CONFIRMA Cliente CREADO
+app.get('/clientesLista', ClientesRoutes.clientesLista);                          // LISTADO
+app.post('/clientesLista/:filtro', ClientesRoutes.clientesListaFiltrada);         // LISTA FILTRADA POR BUSQUEDA
+app.get('/eliminarCliente/:id', ClientesRoutes.eliminarCliente);                  // ELIMINA Cliente
+app.get('/clienteEliminado', ClientesRoutes.clienteEliminadoConfirm);             // CONFRIMA Cliente Eliminado
+app.get('/edit/:id', ClientesRoutes.editarCliente);                               // FORMULARIO DE EDICION
+app.post('/edit/:id', ClientesRoutes.editarClienteConfirmar);                     // CONFIRMA EDICION 
    
        
-    
+//app.get('/verTramite/:id', ClientesRoutes.verTramite);                      //--//--//   Menu de Tramites //--//--// 
 
 
 http.createServer(app).listen(app.get('port'), function () {
