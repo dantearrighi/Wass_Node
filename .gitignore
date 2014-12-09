@@ -82,3 +82,6 @@ $RECYCLE.BIN/
 *.dat
 .ntvs_analysis.dat
 
+
+*.dat
+*.suo
