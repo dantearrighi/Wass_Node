@@ -1,0 +1,48 @@
+﻿extends layout
+
+block content
+  h1= title
+  //p #{JSON.stringify(obj)}
+  .panel.panel-primary
+        .panel-heading.text-center #{cliente.tramite.tipoTramite} de #{cliente.na.apellido}, #{cliente.na.nombre}  
+        .panel-body
+           .list-group
+            a.list-group-item.disabled() Clave Fiscal: #{cliente.claveFiscal} 
+            |   
+            a.list-group-item.disabled() Lo tramita: #{cliente.tramite.tramitadoPor}
+            |   
+            a.list-group-item.disabled() De parte de: #{cliente.tramite.enviadoPor}
+            |   
+            a.list-group-item.disabled() Último movimiento: Todavia no
+            //Hacer algo para mostrar fecha mas reciente
+            
+
+             
+     table.table.table-responsive.table-hover.danger(border=1 )
+    
+     tr
+        th.text-center Fecha
+        th.text-center Detalle
+        th.text-center(colspan="3") Opciones
+        -cliente.tramite.detalleTramite.forEach(function(v,i){
+        tr
+        td=v.fechaDet
+        td=v.textoDet
+                
+        
+        td
+            a.text-center.btn.btn-info.btn-primary(href="/editDetalleTramite/"+v._id) Editar
+        td
+            a.text-center.btn.btn-danger.btn-danger(href="/eliminarDetalleTramite/"+v._id) Borrar
+            -})
+  p
+
+  div
+     a.btn.btn-primary.btn-large(href='/' alt='Menú Principal') &laquo; Menú Principal 
+     td 
+        a.btn.btn-success.btn-large(href='/crearDetalleTramite' alt='nuevo detalle tramite') Añadir nuevo detalle 
+     
+  
+
+
+   
