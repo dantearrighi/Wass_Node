@@ -1,7 +1,8 @@
 ﻿var app = module.parent.exports.app, vClientes = require('../models/cliente.js');
 
 
-exports.index = function(req, res) {
+exports.index = function (req, res) {
+    var msg = req.flash('message');
     res.render('index', { title: 'WASS', year: new Date().getFullYear() });
 };
 
@@ -18,6 +19,7 @@ exports.contact = function (req, res) {
 exports.tramites = function (req, res) {
     res.render('tramites', { title: 'Menú de trámites' });
 };
+
 
 
 var app = module.parent.exports.app, vClientes = require('../models/cliente.js');

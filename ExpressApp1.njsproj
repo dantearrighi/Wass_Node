@@ -72,6 +72,7 @@
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\clientesLista.jade" />
+    <Content Include="views\login.jade" />
     <Content Include="views\tramite.jade" />
     <Content Include="views\tramites.jade" />
   </ItemGroup>

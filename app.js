@@ -8,6 +8,7 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var passport = exports.passport = require('passport');
 var fixtures = require('mongoose-fixtures');
+var Admins = require('./models/admins.js');
 
 var express = require('express');
 var routes = require('./routes');
@@ -16,10 +17,24 @@ var http = require('http');
 var path = require('path');
 var glob = require('glob');
 var mongoose = require('mongoose');
+var adminAuth = function (req, res, next) {
+    //authorize role
+    if (typeof req.user != "undefined") {
+        next();
+    } else {
+        //Not authorized redirect
+        res.redirect('/login');
+    }
+}
 
-//fixtures.load('Users/Dante/Documents/Wass_Node/fixtures/admins.js');
 
-mongoose.connect('mongodb://' + "localhost" +'/test');
+
+fixtures.load('/Documentos/GitHub/Wass_Node/fixtures');
+
+mongoose.connect('mongodb://' + "localhost" + '/test');
+
+//fixtures.load('./fixtures/admins.js');
+//fixtures.load('./fixtures/persons.js');
 var DB = mongoose.connection;
 DB.on('error', console.error.bind(console, 'connection error'));
 DB.once('open', function callback() {
@@ -47,13 +62,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 require('./auth/local-strategy.js');
+app.use(function (req, res, next) {
+    res.locals.user = req.user;
+    next();
+});
+
+
+
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
 //require('./routes/main.js');
-app.get('/', routes.index); 
+app.get('/', adminAuth, routes.index); 
 app.get('/about', routes.about);
 app.get('/contact', routes.contact);
 app.get('/tramites', routes.tramites);
@@ -73,6 +95,18 @@ app.post('/edit/:id', ClientesRoutes.editarClienteConfirmar);                   
        
 app.get('/verTramite/:id', ClientesRoutes.verTramite);                      //--//--//   Menu de Tramites //--//--// 
 
+
+//LOGIN
+app.get('/login', function (req, res) {
+    res.render('login', { title: 'Login' });
+});
+
+app.post('/login', passport.authenticate('AdminLogin', 
+    {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    }));
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
