@@ -2,6 +2,12 @@
 /**
  * Module dependencies.
  */
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var flash = require('connect-flash');
+var passport = exports.passport = require('passport');
+var fixtures = require('mongoose-fixtures');
 
 var express = require('express');
 var routes = require('./routes');
@@ -10,6 +16,8 @@ var http = require('http');
 var path = require('path');
 var glob = require('glob');
 var mongoose = require('mongoose');
+
+fixtures.load('./fixtures/admins.js');
 
 mongoose.connect('mongodb://' + "localhost" +'/test');
 var DB = mongoose.connection;
@@ -34,7 +42,11 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({ secret: 'supersecret', saveUninitialized: true, resave: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+require('./auth/local-strategy.js');
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
