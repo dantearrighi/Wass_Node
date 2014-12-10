@@ -17,7 +17,7 @@ var path = require('path');
 var glob = require('glob');
 var mongoose = require('mongoose');
 
-fixtures.load('./fixtures/admins.js');
+//fixtures.load('Users/Dante/Documents/Wass_Node/fixtures/admins.js');
 
 mongoose.connect('mongodb://' + "localhost" +'/test');
 var DB = mongoose.connection;
