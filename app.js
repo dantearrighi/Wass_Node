@@ -1,4 +1,4 @@
-﻿
+
 /**
  * Module dependencies.
  */
@@ -97,16 +97,9 @@ app.get('/verTramite/:id', ClientesRoutes.verTramite);                      //--
 
 
 //LOGIN
-app.get('/login', function (req, res) {
-    res.render('login', { title: 'Login' });
-});
+app.get('/login', ClientesRoutes.loginGET);
 
-app.post('/login', passport.authenticate('AdminLogin', 
-    {
-        successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true
-    }));
+app.post('/login', ClientesRoutes.loginPOST);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));

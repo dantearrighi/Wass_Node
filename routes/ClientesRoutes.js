@@ -1,4 +1,4 @@
-﻿var app = module.parent.exports.app, vClientes = require('../models/cliente.js');
+var app = module.parent.exports.app, vClientes = require('../models/cliente.js');
 var passport = module.parent.exports.passport;
 var Admins = require('../models/admins.js');
 var Users = require('../models/users.js');
@@ -18,6 +18,17 @@ app.use(function (req, res, next) {
     res.locals.flash = req.flash();
     next();
 });
+
+exports.loginGET = function (req, res) {
+    res.render('login', { title: 'Login' });
+};
+
+exports.loginPOST = passport.authenticate('AdminLogin', 
+    {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    });
 
 
 exports.clientes = function (req, res) { 
