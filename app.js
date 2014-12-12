@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
 var passport = exports.passport = require('passport');
-var fixtures = require('mongoose-fixtures');
+
 var Admins = require('./models/admins.js');
 
 var express = require('express');
@@ -29,7 +29,7 @@ var adminAuth = function (req, res, next) {
 
 
 
-fixtures.load('/Documentos/GitHub/Wass_Node/fixtures');
+
 
 mongoose.connect('mongodb://' + "localhost" + '/test');
 

@@ -20,6 +20,6 @@
     "passport-local": "~1.0.0",
     "passport": "~0.2.1",
     "express-session": "~1.9.2",
-    "mongoose-fixtures": "0.0.1"
+    
   }
 }

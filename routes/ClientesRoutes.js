@@ -1,4 +1,24 @@
 ﻿var app = module.parent.exports.app, vClientes = require('../models/cliente.js');
+var passport = module.parent.exports.passport;
+var Admins = require('../models/admins.js');
+var Users = require('../models/users.js');
+
+var adminAuth = function (req, res, next) {
+    //authorize role
+    if (typeof req.user != "undefined") {
+        next(); //Si el usuario existe, dale que baaaap
+    } else {
+        //Not authorized redirect
+        res.redirect('/');
+    }
+}
+
+app.use(function (req, res, next) {
+    res.locals.user = req.user;
+    res.locals.flash = req.flash();
+    next();
+});
+
 
 exports.clientes = function (req, res) { 
     
