@@ -12,7 +12,10 @@ var adminAuth = function (req, res, next) {
         res.redirect('/');
     }
 }
-
+//ESTO ES RE IMPORTANTE Y NO SE COMO MIERDA PONERLO.
+//LA APP DE CRISTIAN NO ES TAN DISTINTA
+//FIJATE EN LA REPO express4auth QUE ESTO VA EN ALGUN LUGAR PERO
+//DISTINTO AL NUESTRO
 app.use(function (req, res, next) {
     res.locals.user = req.user;
     res.locals.flash = req.flash();
